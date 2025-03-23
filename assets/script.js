@@ -20,7 +20,13 @@ slides.forEach((_, index) => {
     dot.className = `dot${index === 0 ? ' dot_selected' : ''}`;
     dotsContainer.appendChild(dot);
 
-    dot.addEventListener('click', () => updateSlide(index));
+    // Gestion du clic sur un point (désactivée mais laissée dans le code)
+    /*
+    dot.addEventListener('click', () => {
+        console.log(`Point cliqué : Slide ${index + 1}`); // Log lorsque tu cliques sur un point
+        updateSlide(index);
+    });
+    */
 });
 
 // Mise à jour de la slide
@@ -30,9 +36,9 @@ function updateSlide(index) {
     bannerImg.src = `./assets/images/slideshow/${image}`;
     bannerText.innerHTML = tagLine;
 
-    // Affiche un message à chaque mise à jour de la slide
-    console.log(`Slide actuelle : ${index + 1}, Image : ${image}`);
+    console.log(`Slide actuelle : ${index + 1}, Image : ${image}`); // Log la slide actuelle et son image
 
+    // Met à jour l'apparence des points (reste actif pour indiquer la slide actuelle)
     document.querySelectorAll('.dot').forEach((dot, i) => {
         dot.classList.toggle('dot_selected', i === index);
     });
