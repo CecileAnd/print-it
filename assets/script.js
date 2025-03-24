@@ -20,13 +20,11 @@ slides.forEach((_, index) => {
     dot.className = `dot${index === 0 ? ' dot_selected' : ''}`;
     dotsContainer.appendChild(dot);
 
-    // Gestion du clic sur un point (désactivée mais laissée dans le code)
-    
+    // Gestion du clic sur un point (commentable si l'on souhaite rendre les points non cliquables)  
     dot.addEventListener('click', () => {
-        console.log(`Point cliqué : Slide ${index + 1}`); // Log lorsque tu cliques sur un point
+        console.log(`Point cliqué : Slide ${index + 1}`); // Log lorsqu'on clique sur un point
         updateSlide(index);
-    });
-    
+    });    
 });
 
 // Mise à jour de la slide
