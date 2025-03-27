@@ -30,7 +30,7 @@ const arrowRight = document.querySelector('.arrow_right'); // La flèche pour al
 
 // Fonction pour créer les points indicateurs sous la bannière
 function createDots() {
-    slides.forEach((_, index) => {
+    for (let index = 0; index < slides.length; index++) {
         // Crée un élément <div> pour chaque point
         const dot = document.createElement('div');
         dot.classList.add('dot'); // Ajoute la classe CSS pour le style
@@ -43,7 +43,7 @@ function createDots() {
         dot.addEventListener('click', () => {
             goToSlide(index); // Change la slide lorsque l'utilisateur clique sur un point
         });
-    });
+    }
 }
 
 // Fonction pour mettre à jour la slide affichée
@@ -53,9 +53,10 @@ function updateSlide(index) {
     bannerText.innerHTML = slide.tagLine; // Met à jour le texte de la bannière
 
     // Met à jour les points pour refléter la slide sélectionnée
-    document.querySelectorAll('.dot').forEach((dot, idx) => {
-        dot.classList.toggle('dot_selected', idx === index); // Active la classe pour le point correspondant
-    });
+    const dots = document.querySelectorAll('.dot');
+    for (let idx = 0; idx < dots.length; idx++) {
+        dots[idx].classList.toggle('dot_selected', idx === index); // Active la classe pour le point correspondant
+    }
 }
 
 // Fonction pour aller à une slide spécifique
